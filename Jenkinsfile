@@ -60,8 +60,8 @@ pipeline {
              stage ('Larastan and Codeception Test') {
             steps {
                 
-               // sh 'composer require --dev phpstan/phpstan'
-                //sh 'docker exec glue-backend vendor/bin/phpstan analyse bootstrap'
+                // sh 'composer require --dev phpstan/phpstan'
+                sh 'docker exec glue-backend vendor/bin/phpstan analyse bootstrap'
                 sh 'docker exec glue-backend vendor/bin/phpstan analyse public'
                 sh 'docker exec glue-backend vendor/bin/phpstan analyse stubs'
                 sh 'docker exec glue-backend composer require --dev codeception/codeception'
@@ -75,7 +75,7 @@ pipeline {
                 sh 'docker exec glue-backend php artisan test --testsuite=Feature --stop-on-failure'
                 sh 'docker exec glue-backend vendor/bin/phpunit --coverage-html reports/' 
                 sh 'docker exec glue-backend composer require --dev squizlabs/php_codesniffer'
-               // sh 'docker exec glue-backend vendor/bin/phpcs app database storage bootstrap'
+                sh 'docker exec glue-backend vendor/bin/phpcs app database storage bootstrap'
                 sh 'docker exec glue-backend vendor/bin/phpcbf app database storage bootstrap'
 				sh "exit 1"
 				}
