@@ -58,7 +58,7 @@ pipeline {
                 sh 'docker exec glue-backend php artisan test --testsuite=Feature --stop-on-failure'
                 sh 'docker exec glue-backend vendor/bin/phpunit --coverage-html reports/' 
                 sh 'docker exec glue-backend composer require --dev squizlabs/php_codesniffer'
-                sh 'docker exec glue-backend vendor/bin/phpcs app database storage bootstrap'
+               // sh 'docker exec glue-backend vendor/bin/phpcs app database storage bootstrap'
                 sh 'docker exec glue-backend vendor/bin/phpcbf app database storage bootstrap'
 				sh "exit 1"
 				}
