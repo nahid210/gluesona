@@ -5,7 +5,7 @@ pipeline {
         NEXUS_PROTOCOL = "http"
         NEXUS_URL = "http://192.168.1.127:8081/repository/glue-app/"
         NEXUS_REPOSITORY = "glue-app/"
-        NEXUS_CREDENTIAL_ID = "nexusCredentials"
+        NEXUS_CREDENTIAL_ID = "nexus"
         HOME_DIR = "/root/gluesona/workspace/"
     }
     stages {
