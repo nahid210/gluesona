@@ -3,8 +3,8 @@ pipeline {
     environment {
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
-        NEXUS_URL = "http://192.168.122.151:8081/repository/Glue-Artifact//"
-        NEXUS_REPOSITORY = "Glue-Artifact"
+        NEXUS_URL = "http://192.168.1.127:8081/repository/glue-app/"
+        NEXUS_REPOSITORY = "glue-app/"
         NEXUS_CREDENTIAL_ID = "nexusCredentials"
         HOME_DIR = "/root/gluesona/workspace/"
     }
