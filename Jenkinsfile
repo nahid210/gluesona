@@ -19,7 +19,24 @@ pipeline {
                 sh 'rm -rf $HOME_DIR/GlueDocker/artifact.tar.gz'
             }
         }
-           
+           stage ('SAST') {
+                  steps {
+                    script{
+                    def scannerHome =tool 'sonarqube'
+                    withSonarQubeEnv('sonarqube_token') {
+                 sh """/opt/sonar-scanner/bin/sonar-scanner \
+                 -D sonar.projectVersion=1.0-SNAPSHOT \
+                 -D sonar.login=sqp_8c55b72e8684f3449bbf0a5653b4b42fb6065cc8 \
+                 -D sonar.projectKey=gluedocker \
+                 -D sonar.projectName=gluedocker \
+                 -D sonar.sourceEncoding=UTF-8 \
+                 -D sonar.language=php \
+                 -D sonar.host.url=http://192.168.1.127:9000/"""
+                }
+             }
+            }
+            }
+
         
           stage ('Docker Build') {
             steps {
