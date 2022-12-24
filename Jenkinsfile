@@ -3,7 +3,7 @@ pipeline {
     environment {
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
-        NEXUS_URL = "http://192.168.1.127:8081/repository/gluedocker/"
+        NEXUS_URL = "http://192.168.1.127:8081/repository/gluedocker//"
         NEXUS_REPOSITORY = "gluedocker/"
         NEXUS_CREDENTIAL_ID = "nexus"
         HOME_DIR = "/root/gluesona/workspace/"
@@ -19,7 +19,7 @@ pipeline {
                 sh 'rm -rf $HOME_DIR/GlueDocker/artifact.tar.gz'
             }
         }
-           stage ('SAST') {
+         /*  stage ('SAST') {
                   steps {
                     script{
                     def scannerHome =tool 'sonarqube'
@@ -80,11 +80,11 @@ pipeline {
 				sh "exit 1"
 				}
             }
-        }
+        }*/
         
          stage ('Build') {
             steps {
-                sh 'cp -r $HOME_DIR/GlueDocker  $HOME_DIR/artifact'
+                sh 'cp -r $HOME_DIR/GlueDocker $HOME_DIR/artifact'
                 sh 'tar -czvf $HOME_DIR/artifact.tar.gz  $HOME_DIR/artifact'
                 sh 'mv $HOME_DIR/artifact.tar.gz $HOME_DIR/GlueDocker'
                 sh 'ls -la'
