@@ -19,7 +19,7 @@ pipeline {
                 sh 'rm -rf $HOME_DIR/GlueDocker/artifact.tar.gz'
             }
         }
-         /*  stage ('SAST') {
+           stage ('SAST') {
                   steps {
                     script{
                     def scannerHome =tool 'sonarqube'
@@ -80,7 +80,7 @@ pipeline {
 				sh "exit 1"
 				}
             }
-        }*/
+        }
         
          stage ('Build') {
             steps {
