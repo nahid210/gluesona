@@ -92,7 +92,7 @@ pipeline {
         }
         stage ('Upload Artifact'){
              steps {
-                  sh 'curl -v -u ${nexus_user}:${nexus_pass} --upload-file artifact.tar.gz ${NEXUS_URL}'
+                  sh 'cd /root/gluesona/workspace/GlueDocker && curl -v -u admin:admin --upload-file artifact.tar.gz http://192.168.1.127:8081/repository/gluedocker/'
             }
         }    
         stage ('Acceptance Test') {
