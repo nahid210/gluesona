@@ -40,8 +40,8 @@ pipeline {
         
           stage ('Docker Build') {
             steps {
-               sh 'docker stop $(docker ps -a -q)'
-               sh 'docker rm $(docker ps -a -q)'
+              // sh 'docker stop $(docker ps -a -q)'
+              // sh 'docker rm $(docker ps -a -q)'
                sh 'cd /root/gluesona/workspace/GlueDocker/Docker/glue_in_multicontainer && docker-compose -f docker-compose.yml up -d' 
             }
         }
