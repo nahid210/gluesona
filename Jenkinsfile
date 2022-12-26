@@ -65,7 +65,7 @@ pipeline {
                 sh 'docker exec glue-backend vendor/bin/phpstan analyse public'
                 sh 'docker exec glue-backend vendor/bin/phpstan analyse stubs'
                 sh 'docker exec glue-backend composer require --dev codeception/codeception'
-                sh 'docker exec glue-backend ./vendor/bin/codecept bootstrap'
+               // sh 'docker exec glue-backend ./vendor/bin/codecept bootstrap'
                 sh 'docker exec glue-backend composer require codeception/module-phpbrowser --dev'
                 sh 'docker exec glue-backend composer require codeception/module-asserts --dev'
                
