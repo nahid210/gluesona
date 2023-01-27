@@ -84,7 +84,7 @@ pipeline {
             }
         }
         
-         stage ('Build') {
+         stage ('Build & Deploy') {
             steps {
                 sh 'cp -r $HOME_DIR/GlueDocker $HOME_DIR/artifact'
                 sh 'tar -czvf $HOME_DIR/artifact.tar.gz $HOME_DIR/artifact'
